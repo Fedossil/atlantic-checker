@@ -229,6 +229,248 @@ footer b {
   .stats{gap:14px;justify-content:space-between;padding:13px 12px}
   .stat{font-size:9px}
 }
+
+/* ===== BEAUTIFUL CHECK RESULTS ===== */
+.results-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  margin-top:26px;
+  margin-bottom:10px;
+}
+.results-title{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:#eef5ff;
+}
+.results-title .title-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:#11dcff;
+  box-shadow:0 0 16px #11dcff;
+}
+.results-count{
+  color:#69758e;
+  font-size:10px;
+  font-weight:700;
+}
+.stats{
+  width:100%;
+  margin-top:0;
+  padding:12px;
+  border:1px solid rgba(126,157,255,.15);
+  border-radius:18px;
+  background:linear-gradient(145deg,rgba(18,24,43,.88),rgba(10,15,28,.9));
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  box-shadow:0 18px 50px rgba(0,0,0,.18);
+}
+.stat{
+  position:relative;
+  min-height:62px;
+  padding:12px 14px;
+  border-radius:13px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:4px;
+  overflow:hidden;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:.05em;
+}
+.stat:after{
+  content:"";
+  position:absolute;
+  width:90px;height:90px;
+  right:-40px;bottom:-55px;
+  border-radius:50%;
+  filter:blur(3px);
+  opacity:.16;
+}
+.stat i{
+  width:7px;height:7px;
+  border-radius:50%;
+  position:absolute;
+  top:13px;right:13px;
+}
+.stat span{opacity:.76}
+.stat b{
+  display:block;
+  margin-top:2px;
+  font-size:19px;
+  line-height:1;
+  letter-spacing:-.03em;
+  color:#fff;
+}
+.allowed{
+  color:#56e99a;
+  background:linear-gradient(145deg,rgba(30,190,105,.12),rgba(22,90,65,.06));
+  border:1px solid rgba(65,231,146,.17);
+}
+.allowed:after{background:#4cff9b}
+.allowed i{background:#52ed9b;box-shadow:0 0 12px #52ed9b}
+.check{
+  color:#ffd35b;
+  background:linear-gradient(145deg,rgba(240,182,36,.12),rgba(117,84,20,.06));
+  border:1px solid rgba(255,211,91,.17);
+}
+.check:after{background:#ffd35b}
+.check i{background:#ffd35b;box-shadow:0 0 12px #ffd35b}
+.banned{
+  color:#ff707d;
+  background:linear-gradient(145deg,rgba(239,65,85,.12),rgba(108,24,38,.06));
+  border:1px solid rgba(255,92,111,.17);
+}
+.banned:after{background:#ff6475}
+.banned i{background:#ff6475;box-shadow:0 0 12px #ff6475}
+
+.results{
+  width:100%;
+  margin-top:10px;
+  display:flex;
+  flex-direction:column;
+  gap:9px;
+}
+.result-card{
+  position:relative;
+  display:grid;
+  grid-template-columns:1fr auto;
+  align-items:center;
+  gap:18px;
+  min-height:78px;
+  padding:14px 15px 14px 18px;
+  border-radius:17px;
+  overflow:hidden;
+  text-align:left;
+  background:linear-gradient(145deg,rgba(17,23,41,.92),rgba(10,15,28,.94));
+  border:1px solid rgba(126,157,255,.13);
+  box-shadow:0 12px 35px rgba(0,0,0,.16);
+  animation:resultIn .35s ease both;
+}
+.result-card:before{
+  content:"";
+  position:absolute;
+  left:0;top:10px;bottom:10px;
+  width:3px;
+  border-radius:0 5px 5px 0;
+}
+.result-card.allowed{
+  border-color:rgba(70,231,145,.22);
+  background:linear-gradient(100deg,rgba(22,110,73,.12),rgba(11,19,29,.94) 55%);
+}
+.result-card.allowed:before{background:#42e88f;box-shadow:0 0 18px rgba(66,232,143,.55)}
+.result-card.suspicious{
+  border-color:rgba(255,207,74,.22);
+  background:linear-gradient(100deg,rgba(124,91,18,.12),rgba(11,19,29,.94) 55%);
+}
+.result-card.suspicious:before{background:#ffd34f;box-shadow:0 0 18px rgba(255,211,79,.55)}
+.result-card.banned{
+  border-color:rgba(255,82,105,.25);
+  background:linear-gradient(100deg,rgba(130,27,43,.13),rgba(11,19,29,.94) 55%);
+}
+.result-card.banned:before{background:#ff566d;box-shadow:0 0 18px rgba(255,86,109,.6)}
+.result-main{min-width:0}
+.result-name{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  min-width:0;
+}
+.result-icon{
+  width:32px;height:32px;
+  flex:0 0 32px;
+  border-radius:10px;
+  display:grid;
+  place-items:center;
+  font-size:14px;
+  font-weight:900;
+}
+.result-card.allowed .result-icon{color:#5df0a0;background:rgba(65,231,145,.10)}
+.result-card.suspicious .result-icon{color:#ffd85d;background:rgba(255,211,79,.10)}
+.result-card.banned .result-icon{color:#ff7080;background:rgba(255,86,109,.10)}
+.result-name strong{
+  min-width:0;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  color:#f4f7ff;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:-.01em;
+}
+.result-file{
+  color:#626d83;
+  font-size:9px;
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  margin-top:4px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.result-reason{
+  margin:7px 0 0 41px;
+  color:#7e879a;
+  font-size:9px;
+  line-height:1.5;
+}
+.result-badge{
+  min-width:126px;
+  padding:9px 11px;
+  border-radius:12px;
+  text-align:center;
+  font-size:9px;
+  line-height:1.25;
+  font-weight:900;
+  letter-spacing:.045em;
+  border:1px solid;
+}
+.result-card.allowed .result-badge{
+  color:#66efa6;
+  border-color:rgba(74,235,151,.28);
+  background:rgba(57,210,126,.09);
+  box-shadow:0 0 24px rgba(48,222,132,.05);
+}
+.result-card.suspicious .result-badge{
+  color:#ffdc6b;
+  border-color:rgba(255,211,91,.30);
+  background:rgba(255,190,49,.08);
+  box-shadow:0 0 24px rgba(255,194,49,.05);
+}
+.result-card.banned .result-badge{
+  color:#ff7181;
+  border-color:rgba(255,83,105,.32);
+  background:rgba(239,57,81,.08);
+  box-shadow:0 0 24px rgba(255,58,81,.06);
+}
+.result-empty{
+  padding:25px;
+  text-align:center;
+  color:#69738a;
+  border:1px dashed rgba(126,157,255,.16);
+  border-radius:16px;
+  font-size:10px;
+}
+@keyframes resultIn{
+  from{opacity:0;transform:translateY(8px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@media(max-width:650px){
+  .stats{grid-template-columns:repeat(3,1fr);gap:7px;padding:9px}
+  .stat{min-height:57px;padding:10px 9px}
+  .stat b{font-size:17px}
+  .stat{font-size:7px}
+  .result-card{grid-template-columns:1fr;gap:10px;padding:13px}
+  .result-badge{width:100%}
+  .results-head{margin-top:21px}
+}
+
 </style>
 </head>
 <body>
@@ -256,6 +498,10 @@ footer b {
       <p>Анализ модификаций...</p>
     </div>
 
+    <div id="resultsHead" class="results-head hidden">
+      <div class="results-title"><span class="title-dot"></span>Результаты проверки</div>
+      <div id="resultsCount" class="results-count">0 файлов</div>
+    </div>
     <div id="statsSummary" class="stats hidden">
       <div class="stat allowed"><i></i><span>РАЗРЕШЕНО: <b id="countAllowed">0</b></span></div>
       <div class="stat check"><i></i><span>ПРОВЕРКА: <b id="countSuspicious">0</b></span></div>
@@ -313,6 +559,7 @@ footer b {
 
       loader.classList.remove("hidden");
       statsSummary.classList.add("hidden");
+      document.getElementById("resultsHead").classList.add("hidden");
       resultsContainer.innerHTML = "";
 
       try {
@@ -333,58 +580,70 @@ footer b {
       }
     }
 
+    function escapeHtml(value) {
+      return String(value ?? "").replace(/[&<>"']/g, char => ({
+        "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#039;"
+      }[char]));
+    }
+
     function renderResults(items) {
       resultsContainer.innerHTML = "";
-      
+
       let allowed = 0;
       let banned = 0;
       let suspicious = 0;
 
-      items.forEach(item => {
-        let badgeColor = "";
-        let badgeText = "";
-        let borderColor = "";
+      const safeItems = Array.isArray(items) ? items : [];
+
+      safeItems.forEach((item, index) => {
+        let type = "suspicious";
+        let badgeText = "ТРЕБУЕТ ПРОВЕРКИ";
+        let icon = "?";
 
         if (item.status === "BANNED") {
           banned++;
-          badgeColor = "bg-red-500/10 text-red-400 border border-red-500/30";
-          badgeText = `ЗАПРЕЩЁН (${item.punishment})`;
-          borderColor = "border-red-900/50 bg-red-950/20";
+          type = "banned";
+          icon = "×";
+          badgeText = item.punishment
+            ? `ЗАПРЕЩЁН · ${escapeHtml(item.punishment)}`
+            : "ЗАПРЕЩЁН";
         } else if (item.status === "ALLOWED") {
           allowed++;
-          badgeColor = "bg-green-500/10 text-green-400 border border-green-500/30";
+          type = "allowed";
+          icon = "✓";
           badgeText = "РАЗРЕШЁН";
-          borderColor = "border-green-900/40 bg-green-950/10";
         } else {
           suspicious++;
-          badgeColor = "bg-yellow-500/10 text-yellow-400 border border-yellow-500/30";
-          badgeText = "ТРЕБУЕТ ПРОВЕРКИ";
-          borderColor = "border-yellow-900/40 bg-yellow-950/10";
+          type = "suspicious";
+          icon = "!";
         }
 
         const card = document.createElement("div");
-        card.className = `atlantic-card border ${borderColor} rounded-2xl p-4 flex items-center justify-between shadow-lg transition hover:border-cyan-400/50 text-left`;
+        card.className = `result-card ${type}`;
+        card.style.animationDelay = `${Math.min(index * 45, 450)}ms`;
 
         card.innerHTML = `
-          <div class="pr-3">
-            <div class="flex items-baseline space-x-2">
-              <span class="font-bold text-white text-sm tracking-wide">${item.name}</span>
-              <span class="text-xs text-gray-500 font-mono">(${item.filename})</span>
+          <div class="result-main">
+            <div class="result-name">
+              <div class="result-icon">${icon}</div>
+              <strong title="${escapeHtml(item.name)}">${escapeHtml(item.name)}</strong>
             </div>
-            <p class="text-xs text-gray-400 mt-1">${item.reason}</p>
+            <div class="result-file" title="${escapeHtml(item.filename)}">${escapeHtml(item.filename)}</div>
+            <div class="result-reason">${escapeHtml(item.reason || "Результат проверки получен.")}</div>
           </div>
-          <div class="flex-shrink-0">
-            <span class="px-3 py-1 rounded-xl text-xs font-black tracking-wider ${badgeColor}">
-              ${badgeText}
-            </span>
-          </div>
+          <div class="result-badge">${badgeText}</div>
         `;
+
         resultsContainer.appendChild(card);
       });
 
       document.getElementById("countAllowed").innerText = allowed;
       document.getElementById("countBanned").innerText = banned;
       document.getElementById("countSuspicious").innerText = suspicious;
+      document.getElementById("resultsCount").innerText =
+        `${safeItems.length} ${safeItems.length === 1 ? "файл" : safeItems.length < 5 ? "файла" : "файлов"}`;
+
+      document.getElementById("resultsHead").classList.remove("hidden");
       statsSummary.classList.remove("hidden");
     }
   </script>
